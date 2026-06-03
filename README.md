@@ -5,6 +5,18 @@
 ![Nmap](https://img.shields.io/badge/Tool-Nmap-blue?style=flat)
 ![Status](https://img.shields.io/badge/Status-Complete-green?style=flat)
 
+## Analyst Information
+
+| Field | Details |
+|---|---|
+| **Analyst** | Michael Argaw |
+| **Date** | June 3, 2026 |
+| **Lab Environment** | Kali Linux vs Windows 11 — VMware Workstation |
+| **Capture File** | lab_capture.pcap |
+| **Tools** | tcpdump, Wireshark, Nmap, curl, nslookup, ping |
+
+---
+
 ## Overview
 A hands-on network traffic analysis lab simulating real SOC analyst
 workflows. Packet capture and analysis was performed between a Kali
