@@ -5,6 +5,7 @@
 **Lab Environment:** Kali Linux vs Windows 11 — VMware Workstation  
 **Capture File:** lab_capture.pcap  
 **Tool:** tcpdump, Wireshark, Nmap, curl, nslookup, ping
+**Lab Note:** HTTP sites were deliberately selected to simulate plaintext data exposure risk in a controlled lab environment
 
 ---
 
@@ -58,12 +59,24 @@ and Windows Firewall effectiveness confirmation.
 **Wireshark Filter:** `icmp`  
 
 **Description:**  
-ICMP echo request and reply packets between both machines revealed
-the operating system of each host through TTL value analysis.
-Kali Linux sent packets with TTL=64, consistent with Linux/Unix
-systems. Windows 11 replied with TTL=128, consistent with Windows
-operating systems. No specialized scanning tool was required —
-this information was visible from standard ping traffic alone.
+HTTP sessions were deliberately selected for this lab exercise to 
+demonstrate the risk of unencrypted web traffic on a network. The 
+sites neverssl.com and example.com were specifically chosen because 
+they intentionally serve content over HTTP without encryption — 
+making them ideal for illustrating what an analyst can observe when 
+plaintext protocols are in use on a corporate network.
+
+In a real-world SOC environment this finding would apply to scenarios
+such as legacy internal applications still running on port 80, 
+employees submitting credentials over unencrypted forms, or developer 
+tools sending API keys in plaintext. The purpose of capturing this 
+traffic is to demonstrate the analyst's ability to identify, extract, 
+and document unencrypted data in transit as a security risk.
+
+Using Wireshark Follow TCP Stream, the complete HTTP conversation was
+reconstructed including request headers, server response headers,
+server software version, and full HTML page content — all without
+any decryption required.
 
 | Host | IP Address | TTL Observed | OS Identified |
 |---|---|---|---|
